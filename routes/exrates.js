@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios'); 
 const router = express.Router();
 
-async function getExRates(baseCurrency = 'USD') {
+async function getExRates(baseCurrency = 'KZT') {
     try { 
         const apiKey = process.env.EXCHANGERATE_API_KEY;
 
@@ -18,9 +18,10 @@ async function getExRates(baseCurrency = 'USD') {
             rates: {
                 USD: data.conversion_rates.USD,
                 EUR: data.conversion_rates.EUR,
+                GBP: data.conversion_rates.GBP,
                 KZT: data.conversion_rates.KZT,
                 RUB: data.conversion_rates.RUB,
-                CNY: data.conversion_rates.CNY
+                CNY: data.conversion_rates.CNY,
             }
         };
     } catch (error) {
